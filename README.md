@@ -1,7 +1,7 @@
-# Flask Web App Starter
+## Contributing
 
-A Flask starter template based on [these docs](https://flask.palletsprojects.com/en/3.0.x/quickstart/#a-minimal-application).
+Contributions are welcome! Please feel free to submit a pull request.
 
-## Getting Started
+## License
 
-Previews should run automatically when starting a workspace.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
