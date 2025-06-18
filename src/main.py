@@ -4,7 +4,7 @@ import sandhi
 import re
 
 # Initialize the Flask application
-app = Flask(__name__, template_folder="../templates")
+app = Flask(__name__, template_folder="../templates",static_folder='static')
 
 # Create a single, global instance of the Sandhi class
 # This is more efficient than creating it for every request
