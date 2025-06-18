@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>संस्कृत सन्धि गणक</title>
+    <title>संस्कृत सन्धिः गणक</title>
     <style>
         body {
             font-family: sans-serif;
@@ -44,6 +44,18 @@
             width: 200px;
             border: 1px solid #ccc;
             border-radius: 4px;
+ transition: all 0.3s ease; /* Add a transition for smooth effects */
+        }
+
+        input[type="text"]:focus {
+ border-color: #5a2a96; /* Highlight border on focus */
+ box-shadow: 0 0 5px rgba(90, 42, 150, 0.5); /* Add a subtle shadow on focus */
+ outline: none; /* Remove the default outline */
+        }
+
+        input[type="text"]:hover {
+ border-color: #5a2a96; /* Highlight border on hover */
+ background-color: #f9f9f9; /* Subtle background change on hover */
         }
     
         button {
@@ -92,15 +104,28 @@
     </style>
 </head>
 <body>
+ <img src="static/download.png" alt="Logo" style="position: absolute; top: 10px; left: 10px; height: 50px;">
     <div class="container">
-        <h1>संस्कृत सन्धि गणक 📜</h1>
+        <h1>संस्कृत सन्धिः गणक 📜</h1>
         
         <form method="post">
             <input type="text" name="first_word" placeholder="प्रथमं शब्दं प्रविशतु (उदा. देव)" value="{{ first }}" required> 
- <button type="button" class="clear-input">x</button>
+ <!-- Delete Button -->
+ <button type="button" class="clear-input">
+ <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+ <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+ <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H9a1 1 0 0 1 1 1v1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3a.5.5 0 0 0-.5.5V4h10.5v-.5a.5.5 0 0 0-.5-.5h-8z"/>
+ </svg>
+ </button>
             +
             <input type="text" name="second_word" placeholder="द्वितीयं शब्दं प्रविशतु (उदा. आलय)" value="{{ second }}" required> 
- <button type="button" class="clear-input">x</button>
+ <!-- Delete Button -->
+ <button type="button" class="clear-input">
+ <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+ <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+ <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H9a1 1 0 0 1 1 1v1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3a.5.5 0 0 0-.5.5V4h10.5v-.5a.5.5 0 0 0-.5-.5h-8z"/>
+ </svg>
+ </button>
             <br><br>
             <button type="submit">संयोजन</button>
                   <!-- Clear Button -->
@@ -137,7 +162,7 @@
         </script>
     </div>
     <footer>
- <p>&copy; <strong>२०२५ संस्कृत सन्धि गणक ससिधरकश्यपेन, सर्वाधिकारः सुरक्षितः।</strong></p>
+        <p><bold><strong>&copy; २०२५ संस्कृत सन्धि गणक ससिधरकश्यपेन, सर्वाधिकारः सुरक्षितः।</strong></bold></p>
     </footer>
 </body>
 </html>
