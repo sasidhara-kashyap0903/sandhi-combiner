@@ -3,58 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>संस्कृत सन्धी गणक</title>
+    <title>संस्कृत सन्धि गणक</title>
     <style>
-        body { font-family: sans-serif; background-color: #f4f4f9; color: #333; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        body {
+            font-family: sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            display: flex;
+            flex-direction: column; /* Stack content and footer vertically */
+            min-height: 100vh; /* Ensure body takes at least full viewport height */
+        }
+    
         .container {
             background: #fff;
             padding: 2rem;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             text-align: center;
-            /* Added to push content up and allow footer positioning */
-            flex-grow: 1;
-            /* Added for spacing between container and footer */
-            margin-bottom: 60px; /* Adjust based on footer height */
+            /* Allow container to take necessary space and center its content */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex-grow: 1; /* Allow container to grow and take available space */
         }
-
-        h1 { color: #5a2a96; }
-        input[type="text"] { padding: 10px; margin: 5px; width: 200px; border: 1px solid #ccc; border-radius: 4px; }
-        button { padding: 10px 20px; background-color: #5a2a96; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; }
-        button:hover { background-color: #49237a; }
-        #result { margin-top: 20px; font-size: 1.5em; font-weight: bold; color: #d9534f; height: 30px; }
-        footer { margin-top: 40px; font-size: 0.9em; color: #777; }
+    
+        h1 {
+            color: #5a2a96;
+        }
+    
+        /* Added margin-top to the form to push it down */
+        form {
+            margin-top: 20px; /* Adjust this value as needed */
+        }
+    
+        input[type="text"] {
+            padding: 10px;
+            margin: 5px;
+            width: 200px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    
+        button {
+            padding: 10px 20px;
+            background-color: #5a2a96;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    
+        button:hover {
+            background-color: #49237a;
+        }
+    
+        #result {
+            margin-top: 20px;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #d9534f;
+            height: 30px;
+        }
+    
+        footer {
+            text-align: center;
+            margin-top: auto; /* Push footer to the bottom */
+            padding: 20px; /* Add some padding for better spacing */
+            font-size: 0.8em;
+            color:black;
+            background-color: white;
+        }
     </style>
+    
     <style>
         body {
             display: flex;
-            flex-direction: column; /* Stack elements vertically */
-            min-height: 100vh; /* Ensure body takes at least full viewport height */
+            flex-direction: column;
+            min-height: 100vh;
         }
+
         footer {
-            margin-top: auto; /* Push footer to the bottom */
-            width: 100%; /* Make footer span full width */
-            text-align: center; /* Center align footer text */
-            padding: 20px 0; /* Add some padding */
-            background-color: #f0f0f0; /* Optional: add a background color */
-        }
-        .error-message {
-            color: red;
-            margin-top: 10px;
+            margin-top: auto;
+            padding: 20px; /* Add some padding for better spacing */
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>संस्कृत सन्धी गणक📜</h1>
+        <h1>संस्कृत सन्धि गणक 📜</h1>
         
         <form method="post">
-            <input type="text" name="first_word" id="first_word" placeholder="प्रथमं शब्दं प्रविशतु (उदा. देव)" value="{{ first }}" required>
+            <input type="text" name="first_word" placeholder="प्रथमं शब्दं प्रविशतु (उदा. देव)" value="{{ first }}" required> 
+ <button type="button" class="clear-input">x</button>
             +
-            <input type="text" name="second_word" id="second_word" placeholder="द्वितीयं शब्दं प्रविशतु (उदा. आलय)" value="{{ second }}" required>
+            <input type="text" name="second_word" placeholder="द्वितीयं शब्दं प्रविशतु (उदा. आलय)" value="{{ second }}" required> 
+ <button type="button" class="clear-input">x</button>
             <br><br>
-            <button type="submit" onclick="return validateSanskrit()">
-                शब्दान् संयोजयन्तु</button>
+            <button type="submit">संयोजन</button>
+                  <!-- Clear Button -->
+                  <button type="button" id="clear-button" class="w-full sm:w-1/2 bg-gray-200 text-gray-700 font-bold py-3 px-6 rounded-lg hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400">
+                    स्पष्टः
+                </button>
         </form>
 
         <div id="result">
@@ -62,30 +114,30 @@
                 <p>= {{ result }}</p>
             {% endif %}
         </div>
-
-        {% if error %}
-            <p class="error-message">{{ error }}</p>
-        {% endif %}
-
         <script>
-            function validateSanskrit() {
-                const firstWordInput = document.getElementById('first_word');
-                const secondWordInput = document.getElementById('second_word');
-                const sanskritRegex = /^[\u0900-\u097F\s]+$/; // Matches common Devanagari Unicode range and space
+        const firstWordInput = document.querySelector('input[name="first_word"]');
+        const secondWordInput = document.querySelector('input[name="second_word"]');
+        const resultText = document.getElementById('result');
+        const clearButton = document.getElementById('clear-button');
+        const clearInputButtons = document.querySelectorAll('.clear-input');
 
-                if (!sanskritRegex.test(firstWordInput.value) || !sanskritRegex.test(secondWordInput.value)) {
-                    alert("कृपया देवनागरी लिप्यां प्रविष्टं कुर्वन्तु।");
-                    return false; // Prevent form submission
-                }
-                return true; // Allow form submission
-            }
+        clearInputButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                this.previousElementSibling.value = '';
+            });
+        });
+                    // --- Event Listener for the new Clear button ---
+        clearButton.addEventListener('click', function() {
+            firstWordInput.value = '';
+            secondWordInput.value = '';
+            resultText.textContent = '';
+            // Set focus back to the first input field for convenience
+            firstWordInput.focus();
+        });
         </script>
     </div>
-
     <footer>
-        <strong>&copy; संस्कृत सन्धी गणक, 
-            ससिधरकश्यपेन। सर्वाधिकार सुरक्षित।</strong>
+ <p>&copy; <strong>२०२५ संस्कृत सन्धि गणक ससिधरकश्यपेन, सर्वाधिकारः सुरक्षितः।</strong></p>
     </footer>
-
 </body>
 </html>
