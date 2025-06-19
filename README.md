@@ -38,9 +38,13 @@ The Sanskrit Sandhi Calculator is a web application built using the Flask framew
 
 To run this project, you will need:
 
-*   Python 3.6 or higher
+*   Python 3.13
+*   Flask
+*   HTML
+*   CSS
+*   JavaScript
 *   Poetry (for dependency management)
-*   A web browser
+*   A Web Browser
 
 The project dependencies are managed using Poetry and are listed in the `pyproject.toml` file. These dependencies will be automatically installed when you set up the environment using Poetry.
 
