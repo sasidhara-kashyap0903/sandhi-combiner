@@ -1,3 +1,49 @@
+# Sanskrit Sandhi Calculator
+
+## Project Title
+Sanskrit Sandhi Calculator
+
+## Project Contributors
+* **Name**:Sasidhara Kashyap Chaturvedula
+* **Registration No**:24241D5809
+* **Guide**:Dr. G Ramesh (Associate Professor)
+* **Institution**: Gokaraju Rangaraju Institute of Engineering and Technology, Department of Computer Science and Engineering
+
+## Academic Information
+* **Academic Year**:2024-2025
+* **Program**:M. Tech I Year / II semester
+* **Branch**:CSE
+* **Course Code**:GR24D5048 – MINI PROJECT
+
+## Overview
+
+This project implements a web-based Sanskrit Sandhi calculator. It allows users to input Sanskrit words and get the result of applying Sandhi rules to combine them.
+
+## Objective
+
+The primary objective of this project is to provide a user-friendly tool for demonstrating and calculating Sanskrit Sandhi. This can be helpful for students and enthusiasts of Sanskrit to understand how words combine according to grammatical rules.
+
+## Abstract
+
+The Sanskrit Sandhi Calculator is a web application built using the Flask framework. It takes two Sanskrit words as input from the user through a simple web interface. The backend processes these inputs, applies relevant Sanskrit Sandhi rules, and returns the combined word or phrase, which is then displayed to the user.
+
+## Key Features
+
+*   Web-based interface for easy access.
+*   Calculates Sandhi for two input Sanskrit words.
+*   Provides a clear output of the combined form.
+*   Built with Flask for a lightweight and flexible web application.
+
+## Project Requirements
+
+To run this project, you will need:
+
+*   Python 3.6 or higher
+*   Poetry (for dependency management)
+*   A web browser
+
+The project dependencies are managed using Poetry and are listed in the `pyproject.toml` file. These dependencies will be automatically installed when you set up the environment using Poetry.
+
 ## Usage and Execution
 
 This project is a web application built with Flask that provides a Sanskrit Sandhi calculator. To use and execute this code, follow the steps below:
